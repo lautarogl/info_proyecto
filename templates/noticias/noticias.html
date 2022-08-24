@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociacion Civil Oportunidad de Cambio</title>
+    <link rel="stylesheet" href="{% static 'css/noticias.css' %}">
+    <link rel="icon" href="/media/fondo.jpg">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="fila" id="portada">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="logo"><img src="/media/Free_Sample_By_Wix (1).jfif" alt=""></div>
+    </header>
+    <nav>
+        <div>
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12" id="header">
+                <ul class="nav">
+                    <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                    <li><a href="{% url 'noticias:noti' %}">Noticias</a></li>
+                    <li><a href="">Acerca de</a>
+                        <ul>
+                            <li><a href="/nosotros.html">Nosotros</a></li>
+                            <li><a href="">Contacto</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Loguearse</a>
+                        <ul>
+                            <li>{% if user.is_authenticated %}
+                                <span><b>{{ user.username }}</b></span>
+                                <a href="{% url 'logout' %}">Cerrar Sesion</a>
+                            {% else %}
+                                <a href="{% url 'login' %}">Iniciar sesion</a></li>
+                                <li><a href="{% url 'usuarios:registro' %}">Registrarse</a></li>
+                            {% endif %}        
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  </div>
+  <main>
+    <section>
+        <div id="notis">
+            <h2>Noticias</h2>
+        </div>
+    </section>
+    <section id="caja_conte">
+    {% for n in object_list %}
+        <article style="margin-bottom: 15px;">
+            <figure>
+            {% if n.imagen %}
+                <img src="{{ n.imagen.url }}" alt="" style="position: relative;margin-left: 380px;margin-top: 30px; width: 500px;
+                font-weight: 300;">
+            {% else %}
+                <p>Sin imagen</p>
+            {% endif %}
+            </figure>
+        <div>
+            <h2 style="margin-left: 382px; margin-top: 5px;">Categoria: {{ n.categoria }}</h2>
+            <h2 style="margin-left: 382px; margin-top: 5px;">Autor: {{ n.autor }}</h2>
+            <h2 style="margin-left: 382px; margin-top: 5px;">Titulo: {{ n.titulo }}</h2>
+        </div>
+        </article>
+        <a href="{% url 'noticias:detallenoticia' n.pk %}" style="position: relative;margin-left: 382px;margin-top: 735px;">Ver mas</a>
+    {% endfor %}
+    </section>
+  </main>
+    <footer class="fila"><hr><h3>&copy; Todos los derechos reservados - Asociacion civil "Oportunidad de Cambio". Matricula N° 3171</h3></footer>
+</body>
+</html>

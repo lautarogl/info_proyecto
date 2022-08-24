@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/oportunidad-de-cambio2-121x62.png' %}" type="image/x-icon">
+    <title>Home</title>
+</head>
+<body>
+<header>
+    <div class="image-menu">
+        <img src="{% static 'img/oportunidad-de-cambio2-121x62.png' %}" alt="">
+    </div>
+    <div>
+        {% if user.is_authenticated %}
+            <a href="*" class="letra-menu">Bienvenid@s <span style="position:absolute;margin-left:6px;"><b>{{ user.username }}</b></span></a>
+        {% else %}
+        <a href="*" class="letra-menu">Bienvenid@s</a>
+        {% endif %}
+    </div>
+</header>    
+    <section>
+        <nav>
+            <div class="nav-menu">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12" id="header">
+                    <ul class="nav">
+                        <li><a href="{% url 'inicio' %}">Inicio</a></li>   
+                        {% if user.is_superuser %}
+                            <li><a href="">Noticias</a>
+                                <ul>
+                                    <li><a href="{% url 'noticias:addnoti' %}">Cargar Noticia</a></li>
+                                    <li><a href="{% url 'noticias:noti' %}">Ver Noticia</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a href="{% url 'noticias:noti' %}">Noticia</a></li>
+                        {% endif %}
+                        <li><a href="">Acerca de</a>
+                            <ul>
+                                <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Loguearse</a>
+                            <ul>
+                                <li>{% if user.is_authenticated %}
+                                        <a href="{% url 'logout' %}">Cerrar Sesion</a>
+                                    {% else %}
+                                        <a href="{% url 'login' %}">Iniciar sesion</a>
+                                </li>
+                                        <li><a href="{% url 'usuarios:registro' %}">Registrarse</a></li>
+                                    {% endif %}        
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+<main>
+    <section>
+        <div class="imagen-logo">
+            <img src="{% static 'img/tp-1.1-entrega-ac.-de-aire-1867x427.jpeg' %}" alt="">
+        </div>
+    </section>
+    <section class="imagen-fondo">
+        <h3 class="letra-dona">Ayudanos a seguir ayudando</h3>
+        <div class="caja-dona"><a href="" class="boton-dona">Donaciones</a></div>
+    </section>
+    <section class="wrapper">
+        <div><img src="{% static 'img/a.jpeg' %}" alt="" class="wrapper-imagen"></div>
+        <div><img src="{% static 'img/b.jpeg' %}" alt="" class="wrapper-imagen"></div>
+        <div><img src="{% static 'img/c.png' %}" alt="" class="wrapper-imagen"></div>
+        <div><img src="{% static 'img/d.jpg' %}" alt="" class="wrapper-imagen"></div>
+    </section>
+</main>
+<footer><h3>© Copyright - Todos los derechos reservados</h3></footer>    
+</body>
+</html>

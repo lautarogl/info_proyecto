@@ -1,0 +1,192 @@
+
+/* Importing fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Reseting */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.image-menu{
+    width: 150px;
+}
+
+.image-menu img{
+    position: relative;
+    margin-top: 10px;
+    margin-left: 20px;
+    object-fit: cover;
+}
+
+.letra-menu{
+    width: 150px;
+    display: block;
+    color: rgb(15, 18, 19);
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 160px;
+    margin-top: -40px;
+}
+
+.letra-menu:hover{
+    color: rgba(34, 34, 34, 0.709);
+}
+
+.nav-menu{
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    margin-top: 20px;
+    background-color: #1a0755e9;
+}
+
+.nav{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    margin-left: 880px;
+    margin-top: 4px;
+}
+
+
+.nav li a{
+    background-color: #27cee0;
+    color: rgb(54, 36, 36);
+    border-radius: 0.6rem;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0.6rem;
+    display: block;
+}
+
+.nav > li{
+    float: left;
+}
+
+.nav li a:hover{
+    background-color: #40bff6b7;
+}
+
+.nav li ul{
+    display: none;
+    position:absolute;
+    min-width: 140px;
+}
+
+.nav li:hover > ul{
+    display:block ;
+}
+
+
+body {
+    color: rgb(84, 84, 84);
+    background-color:rgba(45, 133, 136, 0.584);
+}
+
+.wrapper {
+    max-width: 350px;
+    min-height: 500px;
+    margin-top: 50px;
+    margin: 150px auto;
+    padding: 50px 30px 30px 30px;
+    background-color: #1490a3;
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #022145, -13px -13px 20px rgb(1, 44, 40);
+}
+
+.logo {
+    width: 80px;
+    margin: auto;
+}
+
+.logo img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 8px 15px #999a9a,
+        0px 0px 0px 15px #080808,
+        8px 8px 15px #090909,
+        0px 8px 18px #f8fbfb;
+}
+
+.wrapper .name {
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 1.3px;
+    padding-left: 10px;
+    color: rgb(11, 10, 10);
+}
+
+.wrapper .form-field input {
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.2rem;
+    color: #666;
+    padding: 10px 15px 10px 10px;
+    /* border: 1px solid red; */
+}
+
+.wrapper .form-field {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background: #e4e3e3;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
+
+.wrapper .form-field .fas {
+    color: rgb(5, 5, 5);
+}
+
+
+.wrapper .btn {
+    box-shadow: none;
+    width: 100%;
+    height: 40px;
+    font-size: 19px;
+    background-color: #03304cdb;
+    color: rgb(0, 0, 0);
+    border-radius: 25px;
+    #box-shadow: -3px 3px 10px #c80761,
+        -3px -4px 6px rgb(249, 5, 156);
+    letter-spacing: 1.3px;
+}
+
+.wrapper .btn:hover {
+    background-color: #1619c1;
+    color: azure;
+}
+
+.wrapper a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #fdffff;
+}
+
+.wrapper a:hover {
+    color: #222222;
+}
+
+@media(max-width: 380px) {
+    .wrapper {
+        margin: 30px 20px;
+        padding: 40px 15px 15px 15px;
+    }
+}
+
+footer{
+    position: relative;
+    border-top: 1px solid black;
+    top: 150px;
+    color: #080808;
+    line-height: 35px;
+}

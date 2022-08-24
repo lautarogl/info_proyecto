@@ -1,0 +1,7 @@
+body{
+    background: rgb(156, 162, 158);
+    font-size: 14px;
+    min-width: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }

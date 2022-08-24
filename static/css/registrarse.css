@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box ;
+}
+
+
+.image-menu{
+    width: 150px;
+}
+
+.image-menu img{
+    position: relative;
+    margin-top: 10px;
+    margin-left: 20px;
+    object-fit: cover;
+}
+
+.letra-menu{
+    width: 150px;
+    display: block;
+    color: rgb(15, 18, 19);
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 160px;
+    margin-top: -40px;
+}
+
+.letra-menu:hover{
+    color: rgba(34, 34, 34, 0.709);
+}
+
+.nav-menu{
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    margin-top: 20px;
+    background-color: #1a0755e9;
+}
+
+.nav{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    margin-left: 880px;
+    margin-top: 6px;
+}
+
+
+
+.nav li a{
+    background-color: #27cee0;
+    color: rgb(54, 36, 36);
+    border-radius: 0.6rem;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0.6rem;
+    display: block;
+}
+
+.nav > li{
+    float: left;
+}
+
+.nav li a:hover{
+    background-color: #40bff6b7;
+}
+
+.nav li ul{
+    display: none;
+    position:absolute;
+    min-width: 140px;
+}
+
+.nav li:hover > ul{
+    display:block ;
+}
+
+
+body{
+    color: rgb(11, 11, 11);
+    background-color:rgba(72, 104, 105, 0.234);
+}
+
+.form-register {
+    width: 400px;
+    background-color: rgb(10, 21, 102);
+    padding: 30px;
+    margin: auto;
+    margin-top: 140px;
+    border-radius: 4px;
+    font-family: "calibri";
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.form-register h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.controls {
+    width: 100%;
+    background-color: rgb(10, 21, 102);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid rgb(35, 77, 204);
+    font-family: "calibri";
+    font-size: 18px;
+    color: white;
+}
+
+.form-register p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+.form-register a {
+    color: white;
+    text-decoration: none;
+
+}
+
+.form-register a:hover {
+    color: white;
+    text-decoration: underline;    
+}
+
+.form-register .botons {
+    width: 100%;
+    background-color: rgb(77, 169, 239);
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+footer{
+    position: relative;
+    top: 55px;
+    border-top: 1px solid black;
+    line-height: 35px;
+}

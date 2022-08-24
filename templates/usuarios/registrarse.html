@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociacion Civil Oportunidad de Cambio</title>
+    <link rel="stylesheet" href="{% static 'css/registrarse.css'  %}">
+</head>
+<body>
+    <header>
+        <div class="image-menu">
+            <img src="{% static 'img/oportunidad-de-cambio2-121x62.png' %}" alt="">
+        </div>
+        <div>
+            {% if user.is_authenticated %}
+                <a href="*" class="letra-menu">Bienvenid@s <span style="position:absolute;margin-left:6px;"><b>{{ user.username }}</b></span></a>
+            {% else %}
+            <a href="*" class="letra-menu">Bienvenid@s</a>
+            {% endif %}
+        </div>
+    </header>    
+        <section>
+            <nav>
+                <div class="nav-menu">
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12" id="header">
+                        <ul class="nav">
+                            <li><a href="{% url 'inicio' %}">Inicio</a></li>   
+                            {% if user.is_superuser %}
+                            <li><a href="">Noticias</a>
+                                <ul>
+                                    <li><a href="{% url 'noticias:addnoti' %}">Cargar Noticia</a></li>
+                                    <li><a href="{% url 'noticias:noti' %}">Ver Noticia</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a href="{% url 'noticias:noti' %}">Noticia</a></li>
+                        {% endif %}
+                            <li><a href="">Acerca de</a>
+                                <ul>
+                                    <li><a href="">Nosotros</a></li>
+                                    <li><a href="">Contacto</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="">Loguearse</a>
+                                <ul>
+                                    <li>{% if user.is_authenticated %}
+                                            <a href="{% url 'logout' %}">Cerrar Sesion</a>
+                                        {% else %}
+                                            <a href="{% url 'login' %}">Iniciar sesion</a></li>
+                                            <li><a href="{% url 'usuarios:registro' %}">Registrarse</a></li>
+                                        {% endif %}        
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+    <section class="form-register">
+        <h4>Formulario Registro</h4>
+        <form action="" method="POST">{% csrf_token %}
+            <input class="controls" type="text" name="username" id="{{" placeholder="Ingrese su Nombre">
+            <input class="controls" type="email" name="email" id="email" placeholder="Ingrese su correo">
+            <input class="controls" type="password" name="password1" id="{{ " placeholder="Ingrese su Contraseña">
+            <input class="controls" type="password" name="password2" id="{{ " placeholder="Confirme su Contraseña">
+            <p>Estoy de acuerdo con <a href="#">Terminos y condiciones</a></p>
+            <input class="botons" type="submit" value="Registrar">
+            <p><a href="{% url 'login' %}">¿Ya tengo cuenta?</a></p>
+        </form>
+    </section>
+    <footer><h3>© Copyright - Todos los derechos reservados</h3></footer>
+</body>
+</html>

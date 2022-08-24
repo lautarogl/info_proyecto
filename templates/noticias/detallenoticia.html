@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/detallenoti.css' %}">
+    <title>Oportunidad de cambio</title>
+</head>
+<body>
+    <section id="caja_conte">
+            <article style="margin-bottom: 15px;">
+                <figure>
+                {% if object.imagen %}
+                    <img src="{{ object.imagen.url }}" alt="" style="position: relative;margin-left: 380px;margin-top: 30px; width: 500px;
+                    font-weight: 300;">
+                {% else %}
+                    <p>Sin imagen</p>
+                {% endif %}
+                </figure>
+            <div>
+                <h2 style="display: block; margin-left: 420px; margin-top: 5px;">Categoria: {{ object.categoria }}</h2>
+                <h2 style="display: block; margin-left: 420px; margin-top: 5px;">Autor: {{ object.autor }}</h2>
+                <h2 style="display: block; margin-left: 420px; margin-top: 5px;">Titulo: {{ object.titulo }}</h2>
+                <p style="margin-left: 420px;margin-top: 17px;margin-bottom:20px;width: 500px;font-size: 20px;border: 0.2rem solid black;padding: 5px;"><b>{{ object.detalle }}</b></p>
+            </div>
+            <div>
+                <span style="margin-left:420px;font-size: 17px;">
+                    <b>Fecha creacion: {{ object.fecha_creacion }}</b>
+                </span>
+                <span style="margin-left: 190px;font-size: 17px;">
+                    <b>Comentarios</b>
+                </span>
+                {% for Comentario in noticias.comentarios.all %}
+                    {% if user.is_authenticated  %}
+                    <div class="comment">
+                        <div class="date">
+                            {{ comentario.fecha }}        
+                        </div>
+                        <strong>{{ comentario.noticia }}</strong>
+                        <p>{{ comentario.comentario|linebreaks }}</p>
+                    </div>
+                    {% endif %}
+                {% empty %}
+                    <p>No comments here yet :(</p>
+                {% endfor %}
+                </div>
+            </article>
+        </section>
+</body>
+</html>
